@@ -1,4 +1,27 @@
 // (1) 회원정보 수정
-function update() {
-
-}
+function update(userId, event) {
+	
+//	console.log(event); // 이벤트.. 최유정
+    event.preventDefault(); //form 태그 action 막기
+	
+	
+	let data = $("#profileUpdate").serialize();
+	
+	console.log(data);
+	
+	$.ajax({
+		type : "PUT",
+		url : `/api/user/${userId}`,
+		data : data,
+		contentType : "application/x-www-form-urlencoded; charset=utf-8",
+		dataType : "json"
+	}).done(res =>{
+		console.log("update 성공");
+		console.log(res);
+		location.href = `/user/${userId}`
+	}).fail(error =>{
+		console.log("update 실패");
+		
+	});
+	
+}// function end
