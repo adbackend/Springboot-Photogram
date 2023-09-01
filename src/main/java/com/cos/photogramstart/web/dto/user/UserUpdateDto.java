@@ -15,6 +15,7 @@ public class UserUpdateDto {
 	@NotBlank
 	private String password;
 	
+	@NotBlank
 	private String website;
 	private String bio;
 	private String phone;
